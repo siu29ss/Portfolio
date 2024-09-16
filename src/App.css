@@ -1,0 +1,192 @@
+:root {
+  --background-color: #fff;
+  --btn-color: #ce79ff;
+  --btn-text-color: var(--background-color);
+  --project-card-bg: #ffffff00;
+  --text-color: #222;
+  --form-text-color: #555;
+  --footer-text-color: #888;
+  --nav-text-color: #222; /* Default nav text color */
+}
+
+[data-theme='dark'] {
+  --background-color: rgb(24, 24, 24);
+  --btn-color: #ffffff;
+  --btn-text-color: var(--background-color);
+  --project-card-bg: #ffffff00;
+  --text-color: #ffffff;
+  --form-text-color: #ffffff;
+  --footer-text-color: #bbb;
+  --nav-text-color: #ffffff; /* Nav text color in dark mode */
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  cursor: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+h1, h2, h3, p {
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h2, h3, p {
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+}
+
+h2, h3 {
+  font-size: 20px;
+}
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.sectionTitle {
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+img {
+  max-width: 250px;
+  align-self: center;
+  background-color: var(--project-card-bg);
+  border-radius: 20px;
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+  color: #222;
+  transition: transform 200ms ease-in-out;
+}
+
+a:hover {
+  transform: scale(1.05);
+}
+
+.cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+  transition: 0.1s;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999; /* Ensure cursor is above other elements */
+}
+
+.cursor--hover {
+  transform: scale(5); /* Adjust the scale as needed */
+  width: 5px;
+  height: 5px;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.link {
+  text-decoration: none;
+  display: inline-block;
+  padding: 20px 20px;
+  cursor: pointer;
+  color: var(--nav-text-color); /* Use variable for nav text color */
+}
+
+nav {
+  position: fixed; /* Change to fixed */
+  top: 0; /* Fixed to the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  width: 100%; /* Full width */
+  background-color: var(--background-color); /* Navbar background color */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Box shadow for better visibility */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 800px) {
+  .projectsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  nav {
+    flex-direction: column; /* Stack vertically on small screens */
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .link {
+    padding: 10px 20px; /* Adjust padding for spacing */
+  }
+}
+
+/* Ensure the section titles retain their original font styles */
+.sectionTitle {
+  font-family: 'Rubik', sans-serif; /* Ensure the original font */
+  font-size: 32px; /* Ensure the original size */
+  color: var(--text-color); /* Ensure the original color */
+  margin-bottom: 30px;
+}
+
+/* Add padding to sections to account for the fixed navbar */
+section {
+  padding-top: 80px;
+  margin-top: -80px; /* Negative margin to counteract extra padding */
+}
+
+/* Ensure there's no extra margin between sections */
+section + section {
+  margin-top: 0;
+}

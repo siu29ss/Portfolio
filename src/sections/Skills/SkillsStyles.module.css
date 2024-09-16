@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 70px;
+}
+
+.sectionTitle {
+  margin-bottom: 20px;
+}
+
+.marqueeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.marquee {
+  overflow: hidden;
+  user-select: none;
+  width: 1500px;
+  
+  position: relative;
+}
+
+.marqueeContent {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+  padding: 5px 60px;
+}
+
+.marquee.right .marqueeContent {
+  animation: marqueeRight 30s linear infinite;
+}
+
+.marquee.left .marqueeContent {
+  animation: marqueeLeft 30s linear infinite;
+}
+
+.marquee:hover .marqueeContent {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeRight {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(50%); }
+  100% { transform: translateX(100%); }
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: black;
+  min-width: 100px;
+}
+
+.skillItemDark {
+  background: #161616;
+  color: white;
+}
+
+@media (min-width: 800px) {
+  .skillItem {
+    font-size: 20px;
+  }
+}
